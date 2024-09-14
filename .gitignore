@@ -1,0 +1,19 @@
+QtProject.conf
+create-next-app-nodejs
+dconf
+go
+gtk-3.0
+
+
+
+# config 
+
+astro
+configstore
+github-copilot
+nextjs-nodejs
+nvim-lazybak
+nvim-bak
+simple-update-notifier
+
+
