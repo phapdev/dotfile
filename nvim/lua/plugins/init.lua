@@ -44,4 +44,43 @@ return {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
+
+  -- auto complete tag html
+  {
+    -- Yeu cầu thiết lập treesitter ( TSInstall)
+    -- example: TSInstall tsx
+    "windwp/nvim-ts-autotag",
+    ft = { -- giới hạn các file được tự động đóng thẻ (<tag>)
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "javascript.jsx",
+      "typescript.jsx",
+      "javascript.tsx",
+      "typescript.tsx",
+      "html",
+    },
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+  -- luarocks 
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+    config = true,
+  },
+  -- => Rust config
+  {
+    "simrat39/rust-tools.nvim",
+    ft = "rust",
+    dependencies = "neovim/nvim-lspconfig",
+    opts = function()
+      require "configs.rust-tools"
+    end,
+    config = function(_, opts)
+      require("rust-tools").setup(opts)
+    end,
+  },
 }
