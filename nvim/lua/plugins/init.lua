@@ -13,20 +13,32 @@ return {
     end,
   },
   {
+    "nvimtools/none-ls.nvim",
+    event="VeryLazy",
+    opts = function ()
+      return require("configs.null-ls")
+    end
+  },
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "lua-language-server",
+        -- tools 
+        "eslint-lsp",
+        -- formatting code
+        "prettier",
+        "prettierd",
         "stylua",
+        -- Language
+        "lua-language-server",
         "html-lsp",
         "css-lsp",
-        "prettier",
         "typescript-language-server",
-        "eslint-lsp",
-        "tailwindcss-language-server"
+        "tailwindcss-language-server",
+        "solidity",
       },
+      automatic_installation = true,
     },
-  
   },
 
   {
@@ -35,7 +47,9 @@ return {
   		ensure_installed = {
   			"vim", "lua", "vimdoc",
        "html", "css", "javascript",
-        ""
+        "jsx", "tsx", "typescript",
+        "rust", "json", "gitignore",
+        "solidity"
   		},
   	},
   },
