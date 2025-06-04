@@ -39,19 +39,27 @@ M.nvdash = {
 }
 
 M.ui = {
-  tabufline = {
-    lazyload = false
-  },
-  -- cmp themeing
   cmp = {
-    icons = true,
+    style = "default",
+    icons = true, -- only for non-atom styles!
     lspkind_text = true,
-    style = "default",            -- default/flat_light/flat_dark/atom/atom_colored
-    border_color = "cyan",        -- only applicable for "default" style, use color names from base30 variables
-    selected_item_bg = "colored", -- colored / simple
+    format_colors = {
+      lsp = true,
+      tailwind = true, -- will work for css lsp too
+      icon = "󱓻",
+    },
   },
 
-  telescope = { style = "bordered" }, -- borderless / bordered
+  tabufline = {
+    enabled = true,
+    lazyload = true,
+    order = { "treeOffset", "buffers", "tabs", "btns" },
+    modules = nil,
+    bufwidth = 21,
+  },
+
+  telescope = { style = "borderless" }, -- borderless / bordered
+
   statusline = {
     enabled = true,
     theme = "default", -- default/vscode/vscode_colored/minimal
@@ -74,6 +82,10 @@ M.term = {
     height = 0.8,
     border = "single",
   },
+}
+
+M.lsp = {
+  signature = true,
 }
 
 return M
