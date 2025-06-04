@@ -1,34 +1,13 @@
-return {
-  {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    opts = require "configs.conform",
-  },
-
-  -- These are some examples, uncomment them if you want to see them work!
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "configs.lspconfig"
-    end,
-  },
-
-{
-    "fladson/vim-kitty",
-    ft = "kitty",
-    tag = "*"  -- You can select a tagged version
-},
-
-  -- test new blink
-  -- { import = "nvchad.blink.lazyspec" },
-
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+local plugin_files = {
+  "conform",
+  "kitty",
+  "nvim-lspconfig",
+  "treesister"
 }
+
+for _, name in ipairs(plugin_files) do
+  local ok, err = pcall(require, "plugins." .. name)
+  if not ok then
+    vim.notify("Error loading plugin: " .. name .. "\n" .. err, vim.log.levels.ERROR)
+  end
+end
