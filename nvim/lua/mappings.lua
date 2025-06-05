@@ -3,7 +3,7 @@ require "nvchad.mappings"
 -- add yours here
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true, nowait = true }
---- 
+---
 map("n", "x", '"_x')
 map("n", "p", '"0p')
 map("n", "P", '"0P')
@@ -23,11 +23,11 @@ map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
 -- COMMAND BUTTON
 map("n", "<D-s>", "<cmd> w <CR>", { noremap = true, silent = true, nowait = true }) -- Cmd + S
-map("n", "<D-q>", ":q<CR>", { noremap = true, silent = true }) -- Cmd + Q
+map("n", "<D-q>", ":q<CR>", { noremap = true, silent = true })                      -- Cmd + Q
 map("n", "<D-c>", '"+y', { noremap = true, silent = true })
 map("v", "<D-c>", '"+y', { noremap = true, silent = true })
-map("i", "<D-v>", '<C-r>+', { noremap = true, silent = true })  -- Insert mode
-map("n", "<D-v>", '"+p', { noremap = true, silent = true })     -- Normal mode
+map("i", "<D-v>", '<C-r>+', { noremap = true, silent = true }) -- Insert mode
+map("n", "<D-v>", '"+p', { noremap = true, silent = true })    -- Normal mode
 map("n", "<D-f>", function() vim.lsp.buf.format { async = true } end, { nowait = true })
 
 -- Di chuyển giữa các cửa sổ (splits) bằng Cmd + h/j/k/l
@@ -66,7 +66,7 @@ map("n", "<M-Down>", "<cmd>m+<CR>", { nowait = true })
 map("n", "<M-Up>", "<cmd>m-2<CR>", { nowait = true })
 map("n", "<M-j>", "<cmd>m+<CR>", { nowait = true })
 map("n", "<M-k>", "<cmd>m-2<CR>", { nowait = true })
--- format & quit 
+-- format & quit
 map("n", "<C-f>", function() vim.lsp.buf.format { async = true } end, { nowait = true })
 map("n", "q", "<cmd>q<CR>", { desc = "quit", nowait = true })
 -- Tab config
@@ -82,7 +82,8 @@ map("n", "<C-w><right>", "<cmd>vertical resize -5<CR>", { desc = "vertical resiz
 map("n", "<leader>tt", function()
   require("base46").toggle_transparency()
 end, { desc = "toggle transparency" })
-
+-- Telescope
+map("n", "<leader>fn", ":Telescope file_browser path=%:p:help |select_buffer=true<CR>|", { desc = "File Browser", nowait = true })
 -- Rust tools
 map("n", "<leader>rca", "<cmd> RustCodeAction <CR>", { desc = "Rust Code Action" })
 map("n", "<leader>rch", "<cmd> RustHoverActions <CR>", { desc = "Rust Hover Actions", buffer = false })
@@ -120,6 +121,4 @@ map("t", "<D-l>", [[<C-\><C-n><C-w>l]], opts)
 -- DAP DEBUGGING
 map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoint at line" })
 map("n", "<leader>dr", "<cmd> DapContinue <CR>", { desc = "Start or continue the debugger" })
-map("n", "<leader>dpr", function() require("dap-python").test_method() end, { desc = "Python test method" })
-
-
+-- map("n", "<leader>dpr", function() require("dap-python").test_method() end, { desc = "Python test method" })

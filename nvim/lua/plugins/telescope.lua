@@ -3,17 +3,20 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     cmd = "Telescope",
-    init = function()
-      local builtin = require('telescope.builtin')
-      local wk = require('which-key')
-      wk.register({
-        ['<leader>ff'] = { builtin.find_files, "Find File" },
-        ['<leader>fb'] = { builtin.buffers, "Find Buffer" },
-        ['<leader>fg'] = { builtin.live_grep, "Find with Grep" },
-        ['<leader>fh'] = { builtin.help_tags, "Find Help" },
-        ['<leader>fn'] = { ":Telescope file_browser path=%:p:h select_buffer=true<CR>", "File Browser" },
-      }, { prefix = "<leader>" })
-    end,
+    -- init = function()
+    --   local builtin = require('telescope.builtin')
+    --   local wk = require('which-key')
+    --   wk.register({
+    --     --   ['ff'] = { builtin.find_files, "Find File" },
+    --     --   ['fb'] = { builtin.buffers, "Find Buffer" },
+    --     --   ['fg'] = { builtin.live_grep, "Find with Grep" },
+    --     --   ['fh'] = { builtin.help_tags, "Find Help" },
+    --     -- ['fn'] = { ":Telescope file_browser path=%:p:h select_buffer=true<CR>", "File Browser" },
+    --     { "<leader>fn", ":Telescope file_browser path=%:p:help |select_buffer=true<CR>|", desc = "File Browser" },
+    --   }
+    --   -- { prefix = "<leader>" }
+    --   )
+    -- end,
     opts = function()
       return {
         defaults = {
@@ -57,4 +60,4 @@ return {
     "nvim-telescope/telescope-file-browser.nvim",
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
   },
- }
+}
