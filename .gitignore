@@ -1,0 +1,10 @@
+zed/
+
+raycast/
+
+tmux-*
+.DS_Store
+
+nvim-backup
+
+gh/
