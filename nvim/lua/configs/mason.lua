@@ -9,5 +9,7 @@ return {
     "rustfmt",
     "stylua",
     "prettier",
-  }
+    "codelldb"
+  },
+  auto_install = true
 }

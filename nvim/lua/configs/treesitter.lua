@@ -1,6 +1,6 @@
 return {
 	ensure_installed = {
-		"go",
+		-- "go",
 		"lua",
 		"rust",
 	},
@@ -14,6 +14,6 @@ return {
 		enable_rename = true,
 		enable_close = true,
 		enable_close_on_slash = true,
-		filetypes = { "html", "xml" },
+		filetypes = { "html", "xml", "markdown", "typescript", "javascript" },
 	},
 }

@@ -40,7 +40,7 @@ M.nvdash = {
 
 M.ui = {
   cmp = {
-    style = "default",
+    style = "atom",
     icons = true, -- only for non-atom styles!
     lspkind_text = true,
     format_colors = {
@@ -58,7 +58,7 @@ M.ui = {
     bufwidth = 21,
   },
 
-  telescope = { style = "borderless" }, -- borderless / bordered
+  telescope = { style = "bordered" }, -- borderless / bordered
 
   statusline = {
     enabled = true,
