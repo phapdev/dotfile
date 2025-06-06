@@ -1,10 +1,4 @@
 return {
-  {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    opts = require "configs.conform",
-  },
-
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
