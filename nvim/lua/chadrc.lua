@@ -40,8 +40,8 @@ M.nvdash = {
 
 M.ui = {
   cmp = {
-    style = "atom",
-    icons = true, -- only for non-atom styles!
+    style = "default",
+    icons_left = false, -- only for non-atom styles!
     lspkind_text = true,
     format_colors = {
       lsp = true,

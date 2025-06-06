@@ -51,11 +51,12 @@ map("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "window left", nowait =
 map("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", { desc = "window right", nowait = true })
 map("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>", { desc = "window down", nowait = true })
 map("n", "<C-k>", "<cmd> TmuxNavigateUp", { desc = "window up", nowait = true })
+
 -- Copy & paster
-map("n", "<C-c>", '"+y', { desc = "copy", nowait = true })
+-- map("n", "<C-c>", '"+y', { desc = "copy", nowait = true })
 map("n", ";", ":", { desc = "enter command mode", nowait = true })
 map("n", "<C-a>", "gg<S-v>G", { desc = "select all", nowait = true, silent = true })
-map("n", "<C-v>", '"+p', { desc = "paste", nowait = true })
+-- map("n", "<C-v>", '"+p', { desc = "paste", nowait = true })
 -- Shift mapping config
 map("n", "<S-Down>", "<cmd>t.<CR>", { nowait = true })
 map("n", "<S-Up>", "<cmd>t 0<CR>", { nowait = true })
@@ -97,8 +98,8 @@ map("v", ">", ">gv", { desc = "indent" })
 map("v", "<A-j>", ":m .+1<CR>==", { desc = "Alt down", nowait = true })
 map("v", "<A-k>", ":m .-2<CR>==", { desc = "Alt up", nowait = true })
 map("v", "p", '"_dP', { nowait = true })
-map("v", "<C-c>", '"+y', { desc = "copy", nowait = true })
-map("v", "<C-v>", '"+p', { desc = "paste", nowait = true })
+-- map("v", "<C-c>", '"+y', { desc = "copy", nowait = true })
+-- map("v", "<C-v>", '"+p', { desc = "paste", nowait = true })
 map("v", "<leader>ca", function() vim.lsp.buf.code_action() end, { desc = "code action", nowait = true })
 
 -- INSERT MODE
