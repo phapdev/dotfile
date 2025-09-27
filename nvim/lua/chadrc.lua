@@ -1,16 +1,17 @@
 -- This file needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/ui/blob/v3.0/lua/nvconfig.lua
--- Please read that file to know all available options :(
+-- Please read that file to know all available options 🚀
 
 ---@type ChadrcConfig
 local M = {}
 
 M.base46 = {
   theme = "nightowl",
+  -- transparency = true,
 
   hl_override = {
     Comment = { italic = true },
-    ["@comment"] = { italic = true },
+    ["@comment"] = { italic = false },
   },
 }
 
@@ -25,6 +26,15 @@ M.nvdash = {
     -- "     Powered By  eovim    ",
     -- "                            ",
     -- "                                                                                                           ",
+    -- "▀███▀▀▀██▄ ▀███▀   ▀███▀▄█▀▀▀█▄███▀▀██▀▀███              ▀████▄     ▄███▀ ▄▄█▀▀██▄ ▀████▀   ▀███▀███▀▀▀███ ",
+    -- "  ██   ▀██▄ ██       █ ▄██    ▀█▀   ██   ▀█                ████    ████ ▄██▀    ▀██▄ ▀██     ▄█   ██    ▀█ ",
+    -- "  ██   ▄██  ██       █ ▀███▄        ██                     █ ██   ▄█ ██ ██▀      ▀██  ██▄   ▄█    ██   █   ",
+    -- "  ███████   ██       █   ▀█████▄    ██                     █  ██  █▀ ██ ██        ██   ██▄  █▀    ██████   ",
+    -- "  ██  ██▄   ██       █ ▄     ▀██    ██          █████      █  ██▄█▀  ██ ██▄      ▄██   ▀██ █▀     ██   █  ▄",
+    -- "  ██   ▀██▄ ██▄     ▄█ ██     ██    ██                     █  ▀██▀   ██ ▀██▄    ▄██▀    ▄██▄      ██     ▄█",
+    -- "▄████▄ ▄███▄ ▀██████▀▀ █▀█████▀   ▄████▄                 ▄███▄ ▀▀  ▄████▄ ▀▀████▀▀       ██     ▄██████████",
+    -- "                                                                                                           ",
+    -- "                                                                                                           ",
     "██████╗ ██╗   ██╗███████╗████████╗          ███╗   ███╗ ██████╗ ██╗   ██╗███████╗",
     "██╔══██╗██║   ██║██╔════╝╚══██╔══╝          ████╗ ████║██╔═══██╗██║   ██║██╔════╝",
     "██████╔╝██║   ██║███████╗   ██║     █████   ██╔████╔██║██║   ██║██║   ██║█████╗  ",
@@ -32,19 +42,18 @@ M.nvdash = {
     "██║  ██║╚██████╔╝███████║   ██║             ██║ ╚═╝ ██║╚██████╔╝ ╚████╔╝ ███████╗",
     "╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝             ╚═╝     ╚═╝ ╚═════╝   ╚═══╝  ╚══════╝",
     "      𝖌𝖎𝖙𝖍𝖚𝖇:𝖕𝖍𝖆𝖕𝖉𝖊𝖛       ",
-    "                        ",
-    "          eovim            ",
+    "                            ",
+    "     eovim +  eovide     ",
     "                            ",
   },
 }
 
 M.ui = {
   cmp = {
-    style = "default",
-    icons_left = false, -- only for non-atom styles!
+    style = "flat_dark",
+    icons_left = true, -- only for non-atom styles!
     lspkind_text = true,
     format_colors = {
-      lsp = true,
       tailwind = true, -- will work for css lsp too
       icon = "󱓻",
     },
@@ -55,10 +64,9 @@ M.ui = {
     lazyload = true,
     order = { "treeOffset", "buffers", "tabs", "btns" },
     modules = nil,
-    bufwidth = 21,
   },
 
-  telescope = { style = "bordered" }, -- borderless / bordered
+  telescope = { style = "borderless" }, -- borderless / bordered
 
   statusline = {
     enabled = true,
@@ -82,10 +90,6 @@ M.term = {
     height = 0.8,
     border = "single",
   },
-}
-
-M.lsp = {
-  signature = true,
 }
 
 return M
