@@ -4,47 +4,43 @@
 
 ---@type ChadrcConfig
 local M = {}
-
 M.base46 = {
-  theme = "nightowl",
+  theme = "catppuccin",
+  transparency = true,
 
   hl_override = {
     Comment = { italic = true },
-    ["@comment"] = { italic = true },
+    ["@comment"] = { italic = false },
   },
 }
 
 M.nvdash = {
   load_on_startup = true,
   header = {
-    -- "     ▒█▀▄░█▒█░▄▀▀░▀█▀       ",
-    -- "     ░█▀▄░▀▄█▒▄██░▒█▒       ",
-    -- "       ｐｈａｐｄｅｖ       ",
     -- "       𝖌𝖎𝖙𝖍𝖚𝖇:𝖕𝖍𝖆𝖕𝖉𝖊𝖛       ",
+    -- -- "     Powered By  eovim    ",
+    "      𝖌𝖎𝖙𝖍𝖚𝖇:𝖕𝖍𝖆𝖕𝖉𝖊𝖛      ",
     -- "                            ",
-    -- "     Powered By  eovim    ",
-    -- "                            ",
-    -- "                                                                                                           ",
-    "██████╗ ██╗   ██╗███████╗████████╗          ███╗   ███╗ ██████╗ ██╗   ██╗███████╗",
-    "██╔══██╗██║   ██║██╔════╝╚══██╔══╝          ████╗ ████║██╔═══██╗██║   ██║██╔════╝",
-    "██████╔╝██║   ██║███████╗   ██║     █████   ██╔████╔██║██║   ██║██║   ██║█████╗  ",
-    "██╔══██╗██║   ██║╚════██║   ██║             ██║╚██╔╝██║██║   ██║╚██╗ ██╔╝██╔══╝  ",
-    "██║  ██║╚██████╔╝███████║   ██║             ██║ ╚═╝ ██║╚██████╔╝ ╚████╔╝ ███████╗",
-    "╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝             ╚═╝     ╚═╝ ╚═════╝   ╚═══╝  ╚══════╝",
-    "      𝖌𝖎𝖙𝖍𝖚𝖇:𝖕𝖍𝖆𝖕𝖉𝖊𝖛       ",
-    "                        ",
-    "          eovim            ",
-    "                            ",
+    -- "           █████                              █████                     ",
+    -- "          ░░███                              ░░███                      ",
+    -- " ████████  ░███████    ██████   ████████   ███████   ██████  █████ █████",
+    -- "░░███░░███ ░███░░███  ░░░░░███ ░░███░░███ ███░░███  ███░░███░░███ ░░███ ",
+    -- " ░███ ░███ ░███ ░███   ███████  ░███ ░███░███ ░███ ░███████  ░███  ░███ ",
+    -- " ░███ ░███ ░███ ░███  ███░░███  ░███ ░███░███ ░███ ░███░░░   ░░███ ███  ",
+    -- " ░███████  ████ █████░░████████ ░███████ ░░████████░░██████   ░░█████   ",
+    -- " ░███░░░  ░░░░ ░░░░░  ░░░░░░░░  ░███░░░   ░░░░░░░░  ░░░░░░     ░░░░░    ",
+    -- " ░███                           ░███                                    ",
+    -- " █████                          █████                                   ",
+    -- " ░░░░░                          ░░░░░                                    "
   },
 }
 
 M.ui = {
   cmp = {
-    style = "atom",
-    icons = true, -- only for non-atom styles!
+    style = "flat_light",
+    icons_left = true, -- only for non-atom styles!
     lspkind_text = true,
     format_colors = {
-      lsp = true,
       tailwind = true, -- will work for css lsp too
       icon = "󱓻",
     },
@@ -55,7 +51,6 @@ M.ui = {
     lazyload = true,
     order = { "treeOffset", "buffers", "tabs", "btns" },
     modules = nil,
-    bufwidth = 21,
   },
 
   telescope = { style = "bordered" }, -- borderless / bordered
@@ -65,12 +60,11 @@ M.ui = {
     theme = "default", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
-    separator_style = "default",
+    separator_style = "round",
     order = nil,
     modules = nil,
   },
 }
-
 M.term = {
   winopts = { number = false, relativenumber = false },
   sizes = { sp = 0.5, vsp = 0.5, ["bo sp"] = 0.5, ["bo vsp"] = 0.5 },
@@ -80,12 +74,8 @@ M.term = {
     col = 0.10,
     width = 0.8,
     height = 0.8,
-    border = "single",
+    border = "double",
   },
-}
-
-M.lsp = {
-  signature = true,
 }
 
 return M

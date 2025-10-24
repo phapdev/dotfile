@@ -1,5 +1,4 @@
 return {
-  {
-    "folke/lazy.nvim", version = "*"
-  }
+  -- test new blink
+  -- { import = "nvchad.blink.lazyspec" },
 }
