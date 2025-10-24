@@ -1,5 +1,0 @@
-return {
-  {
-    "yanganto/move.vim",
-  },
-}
