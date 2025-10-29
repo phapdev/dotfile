@@ -12,7 +12,6 @@ local options = {
     "yaml",
     "rust",
     "go",
-    "ts",
     ---
     "typescript",
     "javascript",
