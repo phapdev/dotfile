@@ -1,5 +1,3 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -56,10 +54,8 @@ return {
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
       -- first key is the mode
-      -- NOTE: NORMOL MODE
+      -- NOTE: NORMAL MODE
       n = {
-        -- second key is the lefthand side of the map
-
         -- navigate buffer tabs
         ["<Tab>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["<S-Tab>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
@@ -79,7 +75,6 @@ return {
         ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", desc = "window left" },
         ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", desc = "window right" },
         ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", desc = "window down" },
-        ["<C-k>"] = { "<cmd> TmuxNavigateUp", desc = "window up" },
 
         ["<Leader>bd"] = {
           function()
