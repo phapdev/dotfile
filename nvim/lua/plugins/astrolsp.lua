@@ -42,11 +42,20 @@ return {
       "html",
       "cssls",
       "tailwindcss",
+      "jsonls",
+      "lua_ls",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      tailwindcss = {
+        capabilities = {
+          includeLanguages = {
+            templ = "html",
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {

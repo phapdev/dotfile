@@ -56,6 +56,7 @@ return {
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
       -- first key is the mode
+      -- NOTE: NORMOL MODE
       n = {
         -- second key is the lefthand side of the map
 
@@ -68,7 +69,18 @@ return {
         ["<Leader>x"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },
         ["<A-i>"] = { "<Cmd>ToggleTerm direction=float<CR>", desc = " ToggleTerm float " },
         ["<A-h>"] = { "<Cmd>ToggleTerm size=10 direction=horizontal<CR>", desc = "ToggleTerm horizontal" },
-        ["<A-v>"] = { " <Cmd>ToggleTerm size=80 direction=vertical<CR> ", desc = "ToggleTerm vertical split" },
+        ["<A-v>"] = { "<Cmd>ToggleTerm size=80 direction=vertical<CR>", desc = "ToggleTerm vertical split" },
+        -- save
+        ["<D-s>"] = { "<cmd>w<CR>", desc = "Save file" },
+        ["<D-a>"] = { "gg<S-v>G", desc = "Select all" },
+        ["<C-a>"] = { "gg<S-v>G", desc = "Select all" },
+
+        -- Tmux navigation
+        ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", desc = "window left" },
+        ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", desc = "window right" },
+        ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", desc = "window down" },
+
+        ["<C-k>"] = { "<cmd> TmuxNavigateUp", desc = "window up" },
         ["<Leader>bd"] = {
           function()
             require("astroui.status.heirline").buffer_picker(
@@ -85,6 +97,14 @@ return {
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
       },
+      -- NOTE: VISUAL MODE
+      v = {
+        -- save
+        ["<D-s>"] = { "<cmd>w<CR>", desc = "Save file" },
+        ["<D-a>"] = { "gg<S-v>G", desc = "Select all" },
+        ["<C-a>"] = { "gg<S-v>G", desc = "Select all" },
+      },
+      -- NOTE: TERMINAL MODE
       t = {
         ["<A-i>"] = { "<Cmd>ToggleTerm direction=float<CR>", desc = " ToggleTerm float " },
         ["<A-h>"] = { "<Cmd>ToggleTerm size=10 direction=horizontal<CR>", desc = "ToggleTerm horizontal" },

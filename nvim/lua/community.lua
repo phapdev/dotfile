@@ -8,6 +8,9 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.colorscheme.catppuccin" }
+  { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.pack.typescript" },
+  -- NOTE: Rust rustaceanvim.lua
+  { import = "astrocommunity.pack.rust" },
   -- import/override with your plugins folder
 }
