@@ -79,8 +79,8 @@ return {
         ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", desc = "window left" },
         ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", desc = "window right" },
         ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", desc = "window down" },
-
         ["<C-k>"] = { "<cmd> TmuxNavigateUp", desc = "window up" },
+
         ["<Leader>bd"] = {
           function()
             require("astroui.status.heirline").buffer_picker(
@@ -90,12 +90,10 @@ return {
           desc = "Close buffer from tabline",
         },
 
-        -- tables with just a `desc` key will be registered with which-key if it's installed
-        -- this is useful for naming menus
-        -- ["<Leader>b"] = { desc = "Buffers" },
-
-        -- setting a mapping to false will disable it
-        -- ["<C-S>"] = false,
+        ["<D>f"] = {
+          function() vim.lsp.buf.format(require("astrolsp").format_opts) end,
+          desc = "Format buffer",
+        },
       },
       -- NOTE: VISUAL MODE
       v = {
@@ -103,12 +101,27 @@ return {
         ["<D-s>"] = { "<cmd>w<CR>", desc = "Save file" },
         ["<D-a>"] = { "gg<S-v>G", desc = "Select all" },
         ["<C-a>"] = { "gg<S-v>G", desc = "Select all" },
+        ["<D>f"] = {
+          function() vim.lsp.buf.format(require("astrolsp").format_opts) end,
+          desc = "Format buffer",
+        },
+        -- Tmux navigation
+        ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", desc = "window left" },
+        ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", desc = "window right" },
+        ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", desc = "window down" },
+        ["<C-k>"] = { "<cmd> TmuxNavigateUp", desc = "window up" },
       },
       -- NOTE: TERMINAL MODE
       t = {
         ["<A-i>"] = { "<Cmd>ToggleTerm direction=float<CR>", desc = " ToggleTerm float " },
         ["<A-h>"] = { "<Cmd>ToggleTerm size=10 direction=horizontal<CR>", desc = "ToggleTerm horizontal" },
         ["<A-v>"] = { " <Cmd>ToggleTerm size=80 direction=vertical<CR> ", desc = "ToggleTerm vertical split" },
+
+        -- Tmux navigation
+        ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", desc = "window left" },
+        ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", desc = "window right" },
+        ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", desc = "window down" },
+        ["<C-k>"] = { "<cmd> TmuxNavigateUp", desc = "window up" },
       },
     },
   },
