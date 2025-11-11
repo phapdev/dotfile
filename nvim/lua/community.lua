@@ -10,5 +10,8 @@ return {
   { import = "astrocommunity.pack.typescript" },
   -- NOTE: Rust rustaceanvim.lua
   { import = "astrocommunity.pack.rust" },
+  -- { import = "astrocommunity.pack.move" },
+  -- auto completion
+  { import = "astrocommunity.completion.codeium-vim" },
   -- import/override with your plugins folder
 }

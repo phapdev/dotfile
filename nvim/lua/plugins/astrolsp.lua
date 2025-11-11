@@ -44,6 +44,7 @@ return {
       "tailwindcss",
       "jsonls",
       "lua_ls",
+      "move_analyzer",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
@@ -56,7 +57,17 @@ return {
           },
         },
       },
+
+      move_analyzer = {
+        -- Dán đường dẫn bạn tìm được ở Bước 1 vào đây
+        cmd = { os.getenv "HOME" .. "/.cargo/bin/move-analyzer" },
+
+        -- Các cài đặt khác cho máy chủ
+        filetypes = { "move" },
+        root_dir = require("lspconfig.util").root_pattern("Move.toml", ".git"),
+      },
     },
+
     -- customize how language servers are attached
     handlers = {
       -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server

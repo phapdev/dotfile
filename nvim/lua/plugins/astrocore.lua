@@ -7,8 +7,7 @@
 return {
   "AstroNvim/astrocore",
   ---@type AstroCoreOpts
-  opts = {
-    -- Configure core features of AstroNvim
+  opts = { -- Configure core features of AstroNvim
     features = {
       large_buf = { size = 1024 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
       autopairs = true, -- enable autopairs at start
@@ -112,7 +111,7 @@ return {
         ["<A-h>"] = { "<Cmd>ToggleTerm size=10 direction=horizontal<CR>", desc = "ToggleTerm horizontal" },
         ["<A-v>"] = { " <Cmd>ToggleTerm size=80 direction=vertical<CR> ", desc = "ToggleTerm vertical split" },
 
-        -- Tmux navigation
+        -- NOTE:  Tmux navigation
         ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", desc = "window left" },
         ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", desc = "window right" },
         ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", desc = "window down" },
