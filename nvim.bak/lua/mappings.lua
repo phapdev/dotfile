@@ -8,7 +8,7 @@ local keymap = vim.keymap
 --
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
 
-keymap.set("n", "d", '"_dd')
+-- keymap.set("n", "d", '"_dd')
 keymap.set("v", "d", '"_dd')
 keymap.set("n", "x", '"_x')
 
@@ -84,7 +84,8 @@ map(
   { desc = "File Browser", nowait = true }
 )
 -- Rust tools
-map("n", "<leader>rca", "<cmd> RustCodeAction <CR>", { desc = "Rust Code Action" })
+map("n", "<leader>rca", "<cmd> RustLsp codeAction <CR>", { desc = "Rust Code Action" })
+map("n", "<leader>rca", "<cmd> vim.cmd.RustLsp('runnables') <CR>", { desc = "Rust Code Action" })
 map("n", "<leader>rch", "<cmd> RustHoverActions <CR>", { desc = "Rust Hover Actions", buffer = false })
 map("n", "<leader>rcc", "<cmd> RustRunnables <CR>", { desc = "Rust Runnables" })
 map("n", "<leader>rcp", "<cmd> RustOpenCargo <CR>", { desc = "Rust Open Cargo" })
@@ -131,3 +132,34 @@ map(
 )
 map("n", "<Leader>de", "<cmd>lua require'dap'.terminate()<CR>", { desc = "Debugger reset" })
 map("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debugger run last" })
+
+local M = {}
+
+M.dap = {
+  plugin = true,
+  n = {
+    ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>" },
+    ["<leader>dus"] = {
+      function()
+        local widgets = require "dap.ui.widgets"
+        local sidebar = widgets.sidebar(widgets.scopes)
+        sidebar.open()
+      end,
+      "Open debugging sidebar",
+    },
+  },
+}
+
+M.crates = {
+  plugin = true,
+  n = {
+    ["<leader>rcu"] = {
+      function()
+        require("crates").upgrade_all_crates()
+      end,
+      "update crates",
+    },
+  },
+}
+
+return M

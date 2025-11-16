@@ -1,0 +1,168 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- return {
+--   "yetone/avante.nvim",
+--   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+--   -- ⚠️ must add this setting! ! !
+--   build = vim.fn.has "win32" ~= 0 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+--     or "make",
+--   event = "VeryLazy",
+--   version = false, -- Never set this value to "*"! Never!
+--   ---@module 'avante'
+--   ---@type avante.Config
+--   opts = {
+--     -- add any opts here
+--     -- this file can contain specific instructions for your project
+--     instructions_file = "avante.md",
+--     -- for example
+--     provider = "gemini",
+--     providers = {
+--       gemini = {
+--         endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
+--         model = "gemini-2.5-pro",
+--         timeout = 30000, -- Timeout in milliseconds
+--         -- context_window = 1048576,
+--         use_ReAct_prompt = true,
+--         extra_request_body = {
+--           generationConfig = {
+--             temperature = 0.75,
+--           },
+--         },
+--         moonshot = {
+--           endpoint = "https://api.moonshot.ai/v1",
+--           model = "kimi-k2-0711-preview",
+--           timeout = 30000, -- Timeout in milliseconds
+--           extra_request_body = {
+--             temperature = 0.75,
+--             max_tokens = 32768,
+--           },
+--         },
+--         -- custom modal
+--         -- openai = {
+--         --   endpoint = "https://api.openai.com/v1",
+--         --   model = "gpt-4o",
+--         --   timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+--         --   context_window = 128000, -- Number of tokens to send to the model for context
+--         --   use_response_api = copilot_use_response_api, -- Automatically switch to Response API for GPT-5 Codex models
+--         --   support_previous_response_id = true, -- OpenAI Response API supports previous_response_id for stateful conversations
+--         --   -- NOTE: Response API automatically manages conversation state using previous_response_id for tool calling
+--         --   extra_request_body = {
+--         --     temperature = 0.75,
+--         --     max_completion_tokens = 16384, -- Increase this to include reasoning tokens (for reasoning models). For Response API, will be converted to max_output_tokens
+--         --     reasoning_effort = "medium", -- low|medium|high, only used for reasoning models. For Response API, this will be converted to reasoning.effort
+--         --     -- background = false, -- Response API only: set to true to start a background task
+--         --     -- NOTE: previous_response_id is automatically managed by the provider for tool calling - don't set manually
+--         --   },
+--         -- },
+--         ---@type AvanteSupportedProvider
+--         -- copilot = {
+--         --   endpoint = "https://api.githubcopilot.com",
+--         --   model = "gpt-4o-2024-11-20",
+--         --   proxy = nil, -- [protocol://]host[:port] Use this proxy
+--         --   allow_insecure = false, -- Allow insecure server connections
+--         --   timeout = 30000, -- Timeout in milliseconds
+--         --   context_window = 64000, -- Number of tokens to send to the model for context
+--         --   use_response_api = copilot_use_response_api, -- Automatically switch to Response API for GPT-5 Codex models
+--         --   support_previous_response_id = false, -- Copilot doesn't support previous_response_id, must send full history
+--         --   -- NOTE: Copilot doesn't support previous_response_id, always sends full conversation history including tool_calls
+--         --   -- NOTE: Response API doesn't support some parameters like top_p, frequency_penalty, presence_penalty
+--         --   extra_request_body = {
+--         --     -- temperature is not supported by Response API for reasoning models
+--         --     max_tokens = 20480,
+--         --   },
+--         -- },
+--         -- ---@type AvanteAzureProvider
+--         -- azure = {
+--         --   endpoint = "", -- example: "https://<your-resource-name>.openai.azure.com"
+--         --   deployment = "", -- Azure deployment name (e.g., "gpt-4o", "my-gpt-4o-deployment")
+--         --   api_version = "2024-12-01-preview",
+--         --   timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+--         --   extra_request_body = {
+--         --     temperature = 0.75,
+--         --     max_completion_tokens = 16384, -- Increase this toinclude reasoning tokens (for reasoning models); but too large default value will not fit for some models (e.g. gpt-5-chat supports at most 16384 completion tokens)
+--         --     reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+--         --   },
+--         -- },
+--         -- ---@type AvanteSupportedProvider
+--         -- claude = {
+--         --   endpoint = "https://api.anthropic.com",
+--         --   model = "claude-sonnet-4-5-20250929",
+--         --   timeout = 30000, -- Timeout in milliseconds
+--         --   context_window = 200000,
+--         --   extra_request_body = {
+--         --     temperature = 0.75,
+--         --     max_tokens = 64000,
+--         --   },
+--         -- },
+--         ---@type AvanteSupportedProvider
+--         -- ollama = {
+--         --   endpoint = "http://127.0.0.1:11434",
+--         --   timeout = 30000, -- Timeout in milliseconds
+--         --   use_ReAct_prompt = true,
+--         --   extra_request_body = {
+--         --     options = {
+--         --       temperature = 0.75,
+--         --       num_ctx = 20480,
+--         --       keep_alive = "5m",
+--         --     },
+--         --   },
+--         -- },
+--         ---@type AvanteSupportedProvider
+--         -- bedrock = {
+--         --   model = "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+--         --   model_names = {
+--         --     "anthropic.claude-3-5-sonnet-20241022-v2:0",
+--         --     "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+--         --     "us.anthropic.claude-opus-4-20250514-v1:0",
+--         --     "us.anthropic.claude-opus-4-1-20250805-v1:0",
+--         --     "us.anthropic.claude-sonnet-4-20250514-v1:0",
+--         --   },
+--         --   timeout = 30000, -- Timeout in milliseconds
+--         --   extra_request_body = {
+--         --     temperature = 0.75,
+--         --     max_tokens = 20480,
+--         --   },
+--         --   aws_region = "", -- AWS region to use for authentication and bedrock API
+--         --   aws_profile = "", -- AWS profile to use for authentication, if unspecified uses default credentials chain
+--         -- },
+--       },
+--     },
+--     dependencies = {
+--       "nvim-lua/plenary.nvim",
+--       "MunifTanjim/nui.nvim",
+--       --- The below dependencies are optional,
+--       "nvim-mini/mini.pick", -- for file_selector provider mini.pick
+--       "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+--       "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+--       "ibhagwan/fzf-lua", -- for file_selector provider fzf
+--       "stevearc/dressing.nvim", -- for input provider dressing
+--       "folke/snacks.nvim", -- for input provider snacks
+--       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+--       "zbirenbaum/copilot.lua", -- for providers='copilot'
+--       {
+--         -- support for image pasting
+--         "HakonHarnes/img-clip.nvim",
+--         event = "VeryLazy",
+--         opts = {
+--           -- recommended settings
+--           default = {
+--             embed_image_as_base64 = false,
+--             prompt_for_file_name = false,
+--             drag_and_drop = {
+--               insert_mode = true,
+--             },
+--             -- required for Windows users
+--             use_absolute_path = true,
+--           },
+--         },
+--       },
+--       {
+--         -- Make sure to set this up properly if you have lazy=true
+--         "MeanderingProgrammer/render-markdown.nvim",
+--         opts = {
+--           file_types = { "markdown", "Avante" },
+--         },
+--         ft = { "markdown", "Avante" },
+--       },
+--     },
+--   },
+-- }
