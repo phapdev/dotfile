@@ -22,14 +22,6 @@ return {
 
         -- install any other package
         "tree-sitter-cli",
-        -- Customize
-        "typescript-language-server",
-        "css-lsp",
-        "rust-analyzer",
-        "html-lsp",
-        "css-ls",
-        "prettier",
-        "json-lsp",
       },
     },
   },
