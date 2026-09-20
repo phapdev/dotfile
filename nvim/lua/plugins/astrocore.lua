@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
@@ -57,11 +57,22 @@ return {
     mappings = {
       -- first key is the mode
       n = {
-        -- second key is the lefthand side of the map
-
+        -- ### System default ###
         -- navigate buffer tabs
-        ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-        ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+        -- -- navigate buffer tabs
+        -- ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        -- ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+        --
+        -- ### System default -  END ###
+        -- second key is the lefthand side of the map
+        -- save
+        ["<D-s>"] = { "<cmd>w<CR>", desc = "Save file" },
+        ["<D-a>"] = { "gg<S-v>G", desc = "Select all" },
+        ["<C-a>"] = { "gg<S-v>G", desc = "Select all" },
+
+        ["<Tab>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        ["<S-Tab>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+        ["<C-n>"] = { "<Cmd>Neotree toggle<CR>", desc = "Toggle Explorer" },
 
         -- mappings seen under group name "Buffer"
         ["<Leader>bd"] = {
@@ -73,12 +84,50 @@ return {
           desc = "Close buffer from tabline",
         },
 
+        -- mappings seen under group name "Buffer"
+        ["<Leader>x"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },
+        ["<A-i>"] = { "<Cmd>ToggleTerm direction=float<CR>", desc = " ToggleTerm float " },
+        ["<A-h>"] = { "<Cmd>ToggleTerm size=10 direction=horizontal<CR>", desc = "ToggleTerm horizontal" },
+        ["<A-v>"] = { "<Cmd>ToggleTerm size=80 direction=vertical<CR>", desc = "ToggleTerm vertical split" },
+
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         -- ["<Leader>b"] = { desc = "Buffers" },
 
         -- setting a mapping to false will disable it
-        -- ["<C-S>"] = false,
+        ["<C-S>"] = false,
+        -- Tmux navigation
+        ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", desc = "window left" },
+        ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", desc = "window right" },
+        ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", desc = "window down" },
+      },
+      -- NOTE: VISUAL MODE
+      v = {
+        -- save
+        ["<D-s>"] = { "<cmd>w<CR>", desc = "Save file" },
+        ["<D-a>"] = { "gg<S-v>G", desc = "Select all" },
+        ["<C-a>"] = { "gg<S-v>G", desc = "Select all" },
+        ["<D>f"] = {
+          function() vim.lsp.buf.format(require("astrolsp").format_opts) end,
+          desc = "Format buffer",
+        },
+        -- Tmux navigation
+        ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", desc = "window left" },
+        ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", desc = "window right" },
+        ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", desc = "window down" },
+        ["<C-k>"] = { "<cmd> TmuxNavigateUp", desc = "window up" },
+      },
+      -- NOTE: TERMINAL MODE
+      t = {
+        ["<A-i>"] = { "<Cmd>ToggleTerm direction=float<CR>", desc = " ToggleTerm float " },
+        ["<A-h>"] = { "<Cmd>ToggleTerm size=10 direction=horizontal<CR>", desc = "ToggleTerm horizontal" },
+        ["<A-v>"] = { " <Cmd>ToggleTerm size=80 direction=vertical<CR> ", desc = "ToggleTerm vertical split" },
+
+        -- NOTE:  Tmux navigation
+        ["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>", desc = "window left" },
+        ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", desc = "window right" },
+        ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", desc = "window down" },
+        ["<C-k>"] = { "<cmd> TmuxNavigateUp", desc = "window up" },
       },
     },
   },
